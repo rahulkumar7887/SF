@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Test Object</relationshipLabel>
+        <relationshipName>Test_Object</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Case_Formula_Field__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( GlobalPicklistUse__c , &quot;New&quot;, &quot;N&quot;, &quot;Open&quot;, &quot;O&quot;, &quot;C&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Formula Field</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Distance_Home_Office__c</fullName>
+        <externalId>false</externalId>
+        <label>Distance (Home &amp; Office)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Formula_Fields__c</fullName>
+        <externalId>false</externalId>
+        <formula>$Setup.Permission__c.Delete_Permission__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Formula Fields</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>GlobalPicklistUse__c</fullName>
+        <externalId>false</externalId>
+        <globalPicklist>GlobalStage</globalPicklist>
+        <label>GlobalPicklistUse</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <displayLocationInDecimal>false</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>Home Location</label>
+        <required>false</required>
+        <scale>6</scale>
+        <trackTrending>false</trackTrending>
+        <type>Location</type>
+    </fields>
+    <fields>
+        <fullName>Make_Standard_Field_Unique__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Make Standard Field Unique</description>
+        <externalId>false</externalId>
+        <label>Make Standard Field Unique</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Office_Location__c</fullName>
+        <displayLocationInDecimal>true</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>Office Location</label>
+        <required>false</required>
+        <scale>6</scale>
+        <trackTrending>false</trackTrending>
+        <type>Location</type>
+    </fields>
+    <fields>
+        <fullName>Price_Book__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>We cannot filter Pricebook.</description>
+        <externalId>false</externalId>
+        <label>Price Book</label>
+        <referenceTo>Pricebook2</referenceTo>
+        <relationshipLabel>Test Object</relationshipLabel>
+        <relationshipName>Test_Object</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Standard_Field_Unique__c</fullName>
+        <externalId>false</externalId>
+        <formula>Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Standard Field Unique</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Test_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Test Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Test_Picklist__c</fullName>
+        <externalId>false</externalId>
+        <label>Test Picklist</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Old</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Test_Text_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Test Text Area</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Test_Text__c</fullName>
+        <displayFormat>A-{0000}</displayFormat>
+        <externalId>false</externalId>
+        <label>Test Text</label>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>Text_Area_Rich__c</fullName>
+        <externalId>false</externalId>
+        <label>Text Area Rich</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Unique_Field__c</fullName>
+        <externalId>false</externalId>
+        <label>Unique Field</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Test Object</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Unique_Field__c</columns>
+        <columns>Test_Text__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Test Object Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Test Object</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

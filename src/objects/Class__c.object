@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Available__c</fullName>
+        <externalId>false</externalId>
+        <label>Available</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>No_of_Students__c</fullName>
+        <externalId>false</externalId>
+        <label>No of Students</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Student_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Student Count</label>
+        <summaryForeignKey>Student__c.Class__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <label>Class</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Available__c</columns>
+        <columns>No_of_Students__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>TestQueue_Class</fullName>
+        <filterScope>Queue</filterScope>
+        <label>TestQueue</label>
+        <queue>TestQueue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>Class - {0000}</displayFormat>
+        <label>Class</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Class</pluralLabel>
+    <searchLayouts>
+        <listViewButtons>Clone_Selected_Records</listViewButtons>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Prevent_related_list_deletion</fullName>
+        <active>false</active>
+        <description>VR to Prevent related list deletion</description>
+        <errorConditionFormula>PRIORVALUE( Student_Count__c ) &lt;&gt; Student_Count__c</errorConditionFormula>
+        <errorMessage>Prevent related list deletion</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Clone_Selected_Records</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Clone Selected Records</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT (&quot;/soap/ajax/13.0/connection.js&quot;)}
+var records ={!GETRECORDIDS($ObjectType.Class__c)};
+var newRecords = [];
+if (records[0] == null)
+{ 
+	alert(&quot;Please select at least one row&quot;) 
+}
+else {
+	var Id={!GETRECORDIDS($ObjectType.Class__c)};
+	window.open(&quot;/apex/CloneClass?ID=&quot;+Id,&quot;_blank&quot;);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Move_Students</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Move Students</masterLabel>
+        <openType>newWindow</openType>
+        <page>MoveStudents</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+</CustomObject>

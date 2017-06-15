@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <articleTypeChannelDisplay>
+        <articleTypeTemplates>
+            <channel>App</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Prm</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Csp</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Pkb</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+    </articleTypeChannelDisplay>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <fields>
+        <fullName>Product_Discription__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Discription</label>
+        <length>32768</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Product_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Name</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Site_Reference__c</fullName>
+        <externalId>false</externalId>
+        <label>Site Reference</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <label>Product Breifing</label>
+    <pluralLabel>Product Breifings</pluralLabel>
+</CustomObject>

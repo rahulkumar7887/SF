@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Class__c</fullName>
+        <externalId>false</externalId>
+        <label>Class</label>
+        <referenceTo>Class__c</referenceTo>
+        <relationshipLabel>Teachers</relationshipLabel>
+        <relationshipName>Teachers</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Teacher</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Teacher Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Teachers</pluralLabel>
+    <searchLayouts>
+        <listViewButtons>Auto_Allocate_Bulk</listViewButtons>
+        <listViewButtons>Auto_Allocate_Bulk_2</listViewButtons>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>Auto_Allocate</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Auto Allocate</masterLabel>
+        <openType>replace</openType>
+        <page>AutoAllocate</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Auto_Allocate_2</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Auto Allocate 2</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>var Id=&apos;{!Teacher__c.Id}&apos;;
+window.location=&quot;apex/AutoAllocate?ID=&quot;+Id+&quot;&amp;param=std&quot;;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Auto_Allocate_Bulk</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Auto Allocate Bulk</masterLabel>
+        <openType>replace</openType>
+        <page>AutoAllocate</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>Auto_Allocate_Bulk_2</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Auto Allocate Bulk 2</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)} 
+var records ={!GETRECORDIDS($ObjectType.Teacher__c)}; 
+var newRecords = []; 
+var ids = []; 
+if (records[0] == null){alert(&quot;Please select at least one row&quot;); }
+else { 
+if(records.length&gt;600){alert(&quot;The maximum number of Client Avails that can be selected is 600&quot;);}
+else{ 
+//window.open(&apos;apex/AutoAllocate?ID=&apos;+records,&apos;_blank&apos;); 
+//ER-256 Start 
+if(records.length&lt;=50){window.open(&apos;apex/AutoAllocate?ID=&apos;+records,&apos;_blank&apos;);}
+else{
+for (var i = 0; i &lt; records.length; i++){ids.push(records[i]); }
+ids = ids.join(&apos;,&apos;); 
+var uniqueId = sforce.connection.getUserInfo().userId + &apos;&apos; + new Date().getTime(); 
+	//var ClientAvailIdStore = new sforce.SObject(&quot;Client_Avail_Id_Store__c&quot;); 
+	//ClientAvailIdStore.Key__c = uniqueId; 
+	//ClientAvailIdStore.ID_Store__c = ids; 
+	//ClientAvailIdStore.Re_Price_User__c = sforce.connection.getUserInfo().userId; 
+//alert(ClientAvailIdStore.ID_Store__c);
+	//sforce.connection.create([ClientAvailIdStore]); 
+window.open(&apos;/apex/AutoAllocate?UNIQUEID=&apos;+uniqueId,&apos;_blank&apos;); 
+//ER-256 End 
+}
+} 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>JS_Location</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>JS Location</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>location.href=&quot;https://powergrid.cs10.visual.force.com/apex/PowerGrid?sfdc.tabName=01rJ00000004sI5&amp;obj=Teacher__c&quot;;</url>
+    </webLinks>
+</CustomObject>
